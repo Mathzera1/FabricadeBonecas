@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite - Fábrica de Boneca</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #4a148c;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, #ff99cc, #993366);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-gif {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://i.gifer.com/WiC5.gif') center/20% no-repeat;
+            background-size: 30%;
+            background-repeat: repeat;
+            opacity: 0.4;
+        }
+
+        .container {
+            background-color: #ffffffcc;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #8e24aa;
+        }
+
+        .details {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-ticket {
+            background: #f8bbd0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ad1457;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #616161;
+            margin-top: 15px;
+        }
+
+        .gif-column {
+            position: fixed;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .left-column {
+            left: 0;
+        }
+
+        .right-column {
+            right: 0;
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8e24aa;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .buy-button:hover {
+            background-color: #6a1b9a;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 1.5em;
+            }
+
+            .details {
+                font-size: 1em;
+            }
+
+            .social-ticket {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .gif-column {
+                display: none;
+            }
+
+            .buy-button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.2em;
+            }
+
+            .details {
+                font-size: 0.9em;
+            }
+
+            .social-ticket {
+                font-size: 0.8em;
+            }
+
+            .buy-button {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-gif"></div>
+
+    <div class="gif-column left-column" id="left-gif-column"></div>
+    <div class="gif-column right-column" id="right-gif-column"></div>
+
+    <div class="container">
+        <div class="title">✨ O Studio Bárbara Takase apresenta: o espetáculo fábrica de boneca ✨ 🩰</div>
+        <div class="details">
+            A turma da Isis ballet fraldinha 1 apresentará como bonecas de latas.<br><br>
+            <strong>Data:</strong> 10 de novembro<br>
+            <strong>Horário:</strong> 16h<br>
+            <strong>Local:</strong> Palácio Estadual Palácio das Artes
+        </div>
+        <div class="social-ticket">
+            🎫 Ingresso Social - Um Ato de Solidariedade 💝<br><br>
+            Valor do ingresso: R$ 80,00.<br>
+            Mas, quem levar 1kg de alimento não perecível pagará apenas <strong>R$ 40,00</strong>!<br><br>
+            <button class="buy-button" onclick="window.location.href='https://ingressos.dancadigital.com/fabricadebonecas/login';">
+                Comprar Ingressos
+            </button>
+        </div>
+        <div class="note">
+            Idosos acima de 60 anos e crianças até 5 anos têm gratuidade (limitado, retirar na escola).<br>
+            Crianças de 6 a 12 anos pagarão apenas R$ 20,00.<br><br>
+            Todos os ingressos serão vendidos online, sem ingressos físicos (exceto para os pequenos artistas).
+        </div>
+    </div>
+
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <script>
+        function fillGifColumn(columnId) {
+            const column = document.getElementById(columnId);
+            const gifHtml = `
+                <div class="tenor-gif-embed" data-postid="22153917" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+                    <a href="https://tenor.com/view/quby-pentol-dance-ballet-gif-22153917">Quby Pentol Sticker</a> from
+                    <a href="https://tenor.com/search/quby-stickers">Quby Stickers</a>
+                </div>
+            `;
+            for (let i = 0; i < 10; i++) {
+                column.innerHTML += gifHtml;
+            }
+        }
+
+        fillGifColumn('left-gif-column');
+        fillGifColumn('right-gif-column');
+    </script>
+</body>
+
+</html>
